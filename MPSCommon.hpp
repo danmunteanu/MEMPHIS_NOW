@@ -33,6 +33,6 @@ static const size_t KLastSubtokenPosition = static_cast <size_t> (-1);
 #define Stringize( L )     #L 
 #define MakeString( M, L ) M(L)
 #define $Line MakeString( Stringize, __LINE__ )
-#define Reminder __FILE__ "(" $Line ") : Reminder: "
+#define FixReminder __FILE__ "(" $Line ") : FixReminder: "
 
 #endif // MPSCOMMON_HPP

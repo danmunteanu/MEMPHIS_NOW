@@ -127,9 +127,10 @@ void MPSEngine::select_master_token (const std::wstring& file_name)
 
 void MPSEngine::select_subtoken (MPSToken* token, bool updateOutput)
 {
-    m_selected_subtoken = token;
     if (!token)
         return;
+
+    m_selected_subtoken = token;
 	
     if (updateOutput) {
         //  reconstruct the output

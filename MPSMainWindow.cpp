@@ -14,8 +14,11 @@
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QScrollBar>
 #include <QtGui/QPainter>
-//#include <QMediaPlayer>
+
+
+#include <QVector>
 //#include <QUrl>
+
 
 //  confirmation dialog messages
 const QString KDiscardAllMessage = "You are going to lose all your changes.\nAre you sure?";
@@ -427,7 +430,7 @@ void MPSMainWindow::create_view_models ()
     m_files_model->setNameFilterDisables(false);
 
     m_gui_obj.lstFiles->setModel(m_files_model);
-    m_gui_obj.lstFiles->setEditTriggers(QAbstractItemView::NoEditTriggers);    
+    m_gui_obj.lstFiles->setEditTriggers(QAbstractItemView::NoEditTriggers);  
 }
 
 QString MPSMainWindow::get_drive_label(const QString& drive)
@@ -1817,12 +1820,33 @@ void MPSMainWindow::on_btnClearConsole_clicked()
 void MPSMainWindow::on_btnListRenames_clicked()
 {
     bool map_has_entries = false;
-    QModelIndex modelIndex = m_files_model->index(m_files_model->rootPath());
+
+    QString rootPath = m_files_model->rootPath();    
+    QModelIndex modelIndex = m_files_model->index(rootPath);
+    int colCount = m_files_model->columnCount(modelIndex);
+    int rowCount = m_files_model->rowCount(modelIndex);
+    QString fileName;   //  child fileName
+
+    /*
+    QVector<QString> vec;
+    for (int row = 0; row < rowCount; ++row)
+    {
+            //  coloana 0 are informatia necesara
+        QModelIndex child = m_files_model->index(row, 0, modelIndex);
+        fileName = m_files_model->fileName(child);
+        vec.append(fileName);                    
+    }
+    */
+
+    //  the file name we're looking for is on col 0/4 (file size is also there on one of the columns)
+    int col = 0;
+    modelIndex = m_files_model->index(m_files_model->rootPath());
     for (int idx = 0; idx < m_files_model->rowCount(modelIndex); ++idx) {
-        QModelIndex child = m_files_model->index(idx, modelIndex.column());
+        //  must pass a parent to the index call
+        QModelIndex child = m_files_model->index(idx, col, modelIndex);
 
         //  get the file name
-        QString fileName = m_files_model->fileName(child);
+        fileName = m_files_model->fileName(child);
 
         //  check the entry in engine's map
         std::wstring rename_to;
