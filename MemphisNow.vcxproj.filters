@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Header Files\transforms">
+      <UniqueIdentifier>{5b133552-1798-424e-9fdb-356856113f84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\transforms">
+      <UniqueIdentifier>{230fa60c-9297-472e-952a-f1e556ad8423}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="MemphisNow.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="transforms\MPSActionBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MPSEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MPSEngineBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MPSToken.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MPSTokenWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MPSTransformsContainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MPSMainWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MemphisNowMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSActionChangeCase.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSActionEnableDisable.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSActionInsertSubtoken.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSActionReplaceInText.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSActionSetSeparators.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSActionSetText.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSConditionAlways.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSConditionBase.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSConditionEquals.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSConditionIsNumeric.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSConditionIsRoot.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSTransform.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="transforms\MPSTransformInfo.cpp">
+      <Filter>Source Files\transforms</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MPSCommon.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MPSEngine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MPSEngineBase.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MPSEngineObserver.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MPSToken.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MPSTokenWidget.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MPSTransformsContainer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSActionBase.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSActionChangeCase.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSActionEnableDisable.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSActionInsertSubtoken.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSActionReplaceInText.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSActionSetSeparators.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSActionSetText.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSConditionAlways.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSConditionBase.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSConditionEquals.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSConditionIsNumeric.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSConditionIsRoot.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSTransform.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="transforms\MPSTransformInfo.hpp">
+      <Filter>Header Files\transforms</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MPSMainWindow.hpp">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="MemphisNowWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+</Project>

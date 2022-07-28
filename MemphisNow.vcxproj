@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B1FC4AEE-433E-49BE-846E-49B900D67F39}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtInstall>6.3.1_msvc2019_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>6.3.1_msvc2019_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Dev\_libs\boost_1_79_0\;C:\Dev\MemphisNow;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Dev\_libs\boost_1_79_0\stage\lib</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Dev\MemphisNow;C:\Dev\_libs\boost_1_79_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Dev\_libs\boost_1_79_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="MemphisNowMain.cpp" />
+    <ClCompile Include="MPSEngine.cpp" />
+    <ClCompile Include="MPSEngineBase.cpp" />
+    <ClCompile Include="MPSMainWindow.cpp" />
+    <ClCompile Include="MPSToken.cpp" />
+    <ClCompile Include="MPSTokenWidget.cpp" />
+    <ClCompile Include="MPSTransformsContainer.cpp" />
+    <ClCompile Include="transforms\MPSActionBase.cpp" />
+    <ClCompile Include="transforms\MPSActionChangeCase.cpp" />
+    <ClCompile Include="transforms\MPSActionEnableDisable.cpp" />
+    <ClCompile Include="transforms\MPSActionInsertSubtoken.cpp" />
+    <ClCompile Include="transforms\MPSActionReplaceInText.cpp" />
+    <ClCompile Include="transforms\MPSActionSetSeparators.cpp" />
+    <ClCompile Include="transforms\MPSActionSetText.cpp" />
+    <ClCompile Include="transforms\MPSConditionAlways.cpp" />
+    <ClCompile Include="transforms\MPSConditionBase.cpp" />
+    <ClCompile Include="transforms\MPSConditionEquals.cpp" />
+    <ClCompile Include="transforms\MPSConditionIsNumeric.cpp" />
+    <ClCompile Include="transforms\MPSConditionIsRoot.cpp" />
+    <ClCompile Include="transforms\MPSTransform.cpp" />
+    <ClCompile Include="transforms\MPSTransformInfo.cpp" />
+    <QtRcc Include="MemphisNow.qrc" />
+    <QtUic Include="MemphisNowWindow.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MPSCommon.hpp" />
+    <ClInclude Include="MPSEngine.hpp" />
+    <ClInclude Include="MPSEngineBase.hpp" />
+    <ClInclude Include="MPSEngineObserver.hpp" />
+    <QtMoc Include="MPSMainWindow.hpp" />
+    <ClInclude Include="MPSToken.hpp" />
+    <ClInclude Include="MPSTokenWidget.hpp" />
+    <ClInclude Include="MPSTransformsContainer.hpp" />
+    <ClInclude Include="transforms\MPSActionBase.hpp" />
+    <ClInclude Include="transforms\MPSActionChangeCase.hpp" />
+    <ClInclude Include="transforms\MPSActionEnableDisable.hpp" />
+    <ClInclude Include="transforms\MPSActionInsertSubtoken.hpp" />
+    <ClInclude Include="transforms\MPSActionReplaceInText.hpp" />
+    <ClInclude Include="transforms\MPSActionSetSeparators.hpp" />
+    <ClInclude Include="transforms\MPSActionSetText.hpp" />
+    <ClInclude Include="transforms\MPSConditionAlways.hpp" />
+    <ClInclude Include="transforms\MPSConditionBase.hpp" />
+    <ClInclude Include="transforms\MPSConditionEquals.hpp" />
+    <ClInclude Include="transforms\MPSConditionIsNumeric.hpp" />
+    <ClInclude Include="transforms\MPSConditionIsRoot.hpp" />
+    <ClInclude Include="transforms\MPSTransform.hpp" />
+    <ClInclude Include="transforms\MPSTransformInfo.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

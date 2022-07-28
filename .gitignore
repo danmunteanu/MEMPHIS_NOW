@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/x64/Release
+/x64/Debug
+/.vs/MemphisNow/v17
+/.vs/MemphisNow/FileContentIndex
