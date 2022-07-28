@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1419</width>
-    <height>819</height>
+    <width>1198</width>
+    <height>701</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Memphis</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icons/cat.ico</normaloff>icons/cat.ico</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_5">
@@ -1707,7 +1711,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1419</width>
+     <width>1198</width>
      <height>22</height>
     </rect>
    </property>

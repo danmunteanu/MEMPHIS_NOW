@@ -158,8 +158,7 @@ private slots:    //  event handlers for main window
     void on_btnInsertRight_clicked();
     void on_btnClearInsertText_clicked();
     void on_btnLoadTransChain_clicked();
-    void on_close(QCloseEvent *event);
-    void on_btnReload_clicked();
+    void on_close(QCloseEvent *event);    
 
 private:
     Ui::MPSMainWindow       m_gui_obj;

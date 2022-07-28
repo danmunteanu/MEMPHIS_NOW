@@ -74,7 +74,7 @@ QValidator::State MPSNumericValidator::validate ( QString & input, int & pos ) c
 
 MPSMainWindow::MPSMainWindow(QWidget *parent) :
     QMainWindow(parent),
-    m_icon_warn (":/icons/warn.png"),
+    m_icon_warn (":/MemphisNow/icons/warn.png"),
     m_show_groups (false),
     m_dlg_trans (0)
 {
@@ -96,9 +96,13 @@ MPSMainWindow::MPSMainWindow(QWidget *parent) :
 
     //  set this as an observer of the engine - used for selecting token widgets
     m_core_engine.add_observer(this);
-
-    //  load from XML storage
-    on_btnReload_clicked();
+    
+    //  Create and add default transforms
+    create_default_transforms();
+    for (int idx = 0; idx < m_core_engine.count_transforms(); ++idx) {
+        QString item_text = QString::number(idx + 1) + ". " + QString::fromStdWString(m_core_engine.get_transform_description_at(idx));
+        m_gui_obj.lstTransforms->addItem(item_text);
+    }
 
     load_global_settings();
 
@@ -1904,16 +1908,6 @@ void MPSMainWindow::on_btnLoadTransChain_clicked()
 
 void MPSMainWindow::on_close(QCloseEvent *event)
 {
-    /*if (m_gui_obj.chkSaveXml->isChecked()) {
-        m_xml_storage.save();
-        event->accept();
-    }
-    */
+    
     event->accept();
-}
-
-void MPSMainWindow::on_btnReload_clicked()
-{
-    while (m_core_engine.has_messages())
-        log_to_console(QString::fromStdWString(m_core_engine.pop_message()));
 }

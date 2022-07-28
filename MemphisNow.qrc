@@ -1,4 +1,6 @@
 <RCC>
-    <qresource prefix="MemphisNow">
+    <qresource prefix="/MemphisNow">
+        <file>icons/cat.ico</file>
+        <file>icons/warn.png</file>
     </qresource>
 </RCC>
