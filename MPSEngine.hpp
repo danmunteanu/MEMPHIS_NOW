@@ -73,10 +73,10 @@ public:
     void clear_files_map ();
 
     //  remove strings
-    /*void add_string_to_remove(const QString& rem_str) { m_strings_to_remove.push_back(rem_str); }
-    const QString& get_string_to_remove_at (int idx) const { return m_strings_to_remove.at(idx); }*/
-    /*int count_strings_to_remove() const { return m_strings_to_remove.count(); }
-    void clear_strings_to_remove () { m_strings_to_remove.clear(); }*/
+    void add_string_to_remove(const QString& rem_str) { m_strings_to_remove.push_back(rem_str); }
+    const QString& get_string_to_remove_at (int idx) const { return m_strings_to_remove.at(idx); }
+    int count_strings_to_remove() const { return m_strings_to_remove.count(); }
+    void clear_strings_to_remove () { m_strings_to_remove.clear(); }
     std::wstring remove_strings_from_text (const std::wstring& text);
 
     //  renames one file
