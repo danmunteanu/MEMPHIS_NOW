@@ -107,10 +107,9 @@ std::wstring MPSTransformsContainer::get_transform_description_at (int idx) cons
 
 MPSTransformInfo MPSTransformsContainer::get_transform_information_at (int idx) const
 {
-
     MPSTransformInfo info;
 
-    if (idx < 0 || idx >= static_cast<int> (m_avail_act_info.size()))
+    if (idx < 0 || idx >= static_cast<int> (m_transforms.size()))
     {
         #pragma message (FixReminder "On invalid index, maybe should return some default dummy MPSTransformInfo")
         return info;

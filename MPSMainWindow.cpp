@@ -379,26 +379,26 @@ void MPSMainWindow::load_dialog_state (const QString& title, const MPSTransformI
 /** BEGIN utility methods **/
 void MPSMainWindow::connect_events ()
 {
-    connect(m_files_model, SIGNAL(directoryLoaded(QString)), this, SLOT(on_files_model_directory_loaded(QString)));
+    connect(m_files_model, SIGNAL(directoryLoaded(QString)), this, SLOT(on_filesModelDirectoryLoaded(QString)));
 
     //  dialog events
-    connect(m_dlg_trans_cmb_condition,        SIGNAL(currentIndexChanged(int)),           this,   SLOT(on_cmb_conditions_index_changed(int)));
-    connect(m_dlg_trans_cmb_action,           SIGNAL(currentIndexChanged(int)),           this,   SLOT(on_cmb_actions_index_changed(int)));
-    connect(m_dlg_trans_edit_cond_text,       SIGNAL(textEdited(const QString&)),         this,   SLOT(on_edit_cond_text_text_edited(const QString&)));
-    connect(m_dlg_trans_edit_act_text_1,      SIGNAL(textEdited(const QString&)),         this,   SLOT(on_edit_act_text_text_edited(QString)));
-    connect(m_dlg_trans_edit_pos,             SIGNAL(textChanged(QString)),               this,   SLOT(on_edit_act_pos_text_changed(const QString&)));
-    connect(m_dlg_trans_btn_close,            SIGNAL(clicked()),                          this,   SLOT(on_btn_close_clicked()));
-    connect(m_dlg_trans_btn_save,             SIGNAL(clicked()),                          this,   SLOT(on_btn_save_clicked()));
+    connect(m_dlg_trans_cmb_condition,        SIGNAL(currentIndexChanged(int)),           this,   SLOT(on_cmbConditionsIndexChanged(int)));
+    connect(m_dlg_trans_cmb_action,           SIGNAL(currentIndexChanged(int)),           this,   SLOT(on_cmbActionsIndexChanged(int)));
+    connect(m_dlg_trans_edit_cond_text,       SIGNAL(textEdited(const QString&)),         this,   SLOT(on_editCondTextTextEdited(const QString&)));
+    connect(m_dlg_trans_edit_act_text_1,      SIGNAL(textEdited(const QString&)),         this,   SLOT(on_editActionsTextTextEdited(QString)));
+    connect(m_dlg_trans_edit_pos,             SIGNAL(textChanged(QString)),               this,   SLOT(on_editActionsPosTextChanged(const QString&)));
+    connect(m_dlg_trans_btn_close,            SIGNAL(clicked()),                          this,   SLOT(on_btnCloseClicked()));
+    connect(m_dlg_trans_btn_save,             SIGNAL(clicked()),                          this,   SLOT(on_btnSaveClicked()));
 
     //  connect scroll bars' motion
     QScrollBar* files_vert_scroll = m_gui_obj.lstFiles->verticalScrollBar();
     QScrollBar* files_horiz_scroll = m_gui_obj.lstFiles->horizontalScrollBar();
     QScrollBar* rename_to_vert_scroll = m_gui_obj.lstRenames->verticalScrollBar();
     QScrollBar* rename_to_horiz_scroll = m_gui_obj.lstRenames->horizontalScrollBar();
-    connect(files_vert_scroll,              SIGNAL(valueChanged(int)),          this,   SLOT(on_lst_files_vertical_slider_value_changed(int)));
-    connect(files_horiz_scroll,             SIGNAL(valueChanged(int)),          this,   SLOT(on_lst_files_horizontal_slider_value_changed(int)));
-    connect(rename_to_vert_scroll,          SIGNAL(valueChanged(int)),          this,   SLOT(on_lst_rename_to_vertical_slider_value_changed(int)));
-    connect(rename_to_horiz_scroll,         SIGNAL(valueChanged(int)),          this,   SLOT(on_lst_rename_to_horizontal_slider_value_changed(int)));
+    connect(files_vert_scroll,              SIGNAL(valueChanged(int)),          this,   SLOT(on_listFilesVerticalSliderValueChanged(int)));
+    connect(files_horiz_scroll,             SIGNAL(valueChanged(int)),          this,   SLOT(on_lstFilesHorizontalSliderValueChanged(int)));
+    connect(rename_to_vert_scroll,          SIGNAL(valueChanged(int)),          this,   SLOT(on_lstRenameToVerticalSliderValueChanged(int)));
+    connect(rename_to_horiz_scroll,         SIGNAL(valueChanged(int)),          this,   SLOT(on_lstRenameToHorizontalSliderValueChanged(int)));
 }
 
 void MPSMainWindow::create_view_models ()
@@ -431,6 +431,13 @@ void MPSMainWindow::create_view_models ()
 
     m_gui_obj.lstFiles->setModel(m_files_model);
     m_gui_obj.lstFiles->setEditTriggers(QAbstractItemView::NoEditTriggers);  
+
+    //  load last path
+    /*xQString lastPath = "C:\\Users\\USER\\Desktop\\Dan\\NOVA_MUZICA";
+    QModelIndex index = m_folders_model->setRootPath(lastPath);    
+    m_gui_obj.tvFolders->setRootIndex(index);
+    */
+
 }
 
 QString MPSMainWindow::get_drive_label(const QString& drive)
@@ -451,7 +458,7 @@ QString MPSMainWindow::get_drive_label(const QString& drive)
         256);
     if (!ret) return QString("");
     QString name = QString::fromUtf16 ((const ushort*) szVolumeName);
-    name.trimmed();
+    (void) name.trimmed();
 
     return name;
 }
@@ -1118,7 +1125,7 @@ void MPSMainWindow::on_lstFiles_pressed(const QModelIndex &index)
     on_current_file_changed(index);
 }
 
-void MPSMainWindow::on_files_model_directory_loaded (QString)
+void MPSMainWindow::on_filesModelDirectoryLoaded (QString)
 {
     //  sort the model before filling in the renames' list
     m_files_model->sort(0);
@@ -1129,22 +1136,22 @@ void MPSMainWindow::on_files_model_directory_loaded (QString)
     m_gui_obj.lstRenames->setEnabled(true);
 }
 
-void MPSMainWindow::on_lst_files_vertical_slider_value_changed (int value)
+void MPSMainWindow::on_listFilesVerticalSliderValueChanged (int value)
 {
     m_gui_obj.lstRenames->verticalScrollBar()->setValue(value);
 }
 
-void MPSMainWindow::on_lst_files_horizontal_slider_value_changed (int value)
+void MPSMainWindow::on_lstFilesHorizontalSliderValueChanged (int value)
 {
     m_gui_obj.lstRenames->horizontalScrollBar()->setValue(value);
 }
 
-void MPSMainWindow::on_lst_rename_to_vertical_slider_value_changed (int value)
+void MPSMainWindow::on_lstRenameToVerticalSliderValueChanged (int value)
 {
     m_gui_obj.lstFiles->verticalScrollBar()->setValue(value);
 }
 
-void MPSMainWindow::on_lst_rename_to_horizontal_slider_value_changed (int value)
+void MPSMainWindow::on_lstRenameToHorizontalSliderValueChanged (int value)
 {
     m_gui_obj.lstFiles->horizontalScrollBar()->setValue(value);
 }
@@ -1159,7 +1166,7 @@ void MPSMainWindow::on_btnAddTransform_clicked()
     m_dlg_trans->show();
 }
 
-void MPSMainWindow::on_cmb_conditions_index_changed (int idx)
+void MPSMainWindow::on_cmbConditionsIndexChanged (int idx)
 {
     bool is_cond_equals = (idx == m_core_engine.get_available_condition_index(KConditionEqualsID));
     m_dlg_trans_edit_cond_text->setVisible(is_cond_equals);
@@ -1179,7 +1186,7 @@ void MPSMainWindow::on_cmb_conditions_index_changed (int idx)
         m_dlg_trans_edit_cond_text->setFocus();
 }
 
-void MPSMainWindow::on_cmb_actions_index_changed(int idx)
+void MPSMainWindow::on_cmbActionsIndexChanged(int idx)
 {
     //  action text
     int idx_act_set_sep = m_core_engine.get_available_action_index (KActionSetSeparatorsID);
@@ -1214,7 +1221,7 @@ void MPSMainWindow::on_cmb_actions_index_changed(int idx)
         m_dlg_trans_edit_act_text_1->setFocus();
 }
 
-void MPSMainWindow::on_edit_cond_text_text_edited (const QString& text)
+void MPSMainWindow::on_editCondTextTextEdited (const QString& text)
 {
     Q_UNUSED(text);
     QString msg;
@@ -1222,7 +1229,7 @@ void MPSMainWindow::on_edit_cond_text_text_edited (const QString& text)
     update_dialog_message(msg);
 }
 
-void MPSMainWindow::on_edit_act_text_text_edited (const QString& text)
+void MPSMainWindow::on_editActionsTextTextEdited (const QString& text)
 {
     Q_UNUSED(text);
     QString msg;
@@ -1230,7 +1237,7 @@ void MPSMainWindow::on_edit_act_text_text_edited (const QString& text)
     update_dialog_message(msg);
 }
 
-void MPSMainWindow::on_edit_act_pos_text_changed (const QString& text)
+void MPSMainWindow::on_editActionsPosTextChanged (const QString& text)
 {
     Q_UNUSED(text);
     QString msg;
@@ -1245,7 +1252,7 @@ void MPSMainWindow::update_dialog_message (const QString& msg)
     m_dlg_trans_lbl_msg->show();
 }
 
-void MPSMainWindow::on_btn_save_clicked()
+void MPSMainWindow::on_btnSaveClicked()
 {
     //  construct the information out of the dialog state
     MPSTransformInfo info;
@@ -1289,7 +1296,7 @@ void MPSMainWindow::on_btn_save_clicked()
     m_dlg_trans->close();
 }
 
-void MPSMainWindow::on_btn_close_clicked()
+void MPSMainWindow::on_btnCloseClicked()
 {
     m_dlg_trans->close();
 }

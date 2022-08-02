@@ -104,18 +104,18 @@ private:
     void log_to_console (const QString& err_msg);
 
 private slots:  //  event handlers for tranforms dialog
-    void on_cmb_conditions_index_changed (int idx);
-    void on_cmb_actions_index_changed(int idx);
-    void on_edit_act_text_text_edited (const QString& text);
-    void on_edit_act_pos_text_changed (const QString& text);
-    void on_edit_cond_text_text_edited (const QString& text);
-    void on_btn_save_clicked();
-    void on_btn_close_clicked();
+    void on_cmbConditionsIndexChanged (int idx);
+    void on_cmbActionsIndexChanged(int idx);
+    void on_editActionsTextTextEdited (const QString& text);
+    void on_editActionsPosTextChanged (const QString& text);
+    void on_editCondTextTextEdited (const QString& text);
+    void on_btnSaveClicked();
+    void on_btnCloseClicked();
 
 private slots:    //  event handlers for main window
     void on_cmbDrives_currentIndexChanged(int index);
     void on_tvFolders_clicked(const QModelIndex& index);
-    void on_files_model_directory_loaded (QString);    
+    void on_filesModelDirectoryLoaded (QString);    
     void on_btnAddTransform_clicked();   
     void on_btnEditTransform_clicked();
     void on_btnRemoveTransform_clicked();
@@ -135,10 +135,10 @@ private slots:    //  event handlers for main window
     void on_btnUpcase_clicked();
     void on_btnLowcase_clicked();
     void on_chkEnableTransforms_stateChanged(int);
-    void on_lst_files_vertical_slider_value_changed (int value);
-    void on_lst_files_horizontal_slider_value_changed (int value);
-    void on_lst_rename_to_vertical_slider_value_changed (int value);
-    void on_lst_rename_to_horizontal_slider_value_changed (int value);
+    void on_listFilesVerticalSliderValueChanged (int value);
+    void on_lstFilesHorizontalSliderValueChanged (int value);
+    void on_lstRenameToVerticalSliderValueChanged (int value);
+    void on_lstRenameToHorizontalSliderValueChanged (int value);
     void on_editDefaultSeparators_textEdited(const QString&);
     void on_lstFiles_entered(const QModelIndex &index);
     void on_lstFiles_pressed(const QModelIndex &index);

@@ -134,6 +134,7 @@
     <ClInclude Include="MPSToken.hpp" />
     <ClInclude Include="MPSTokenWidget.hpp" />
     <ClInclude Include="MPSTransformsContainer.hpp" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="transforms\MPSActionBase.hpp" />
     <ClInclude Include="transforms\MPSActionChangeCase.hpp" />
     <ClInclude Include="transforms\MPSActionEnableDisable.hpp" />
@@ -148,6 +149,9 @@
     <ClInclude Include="transforms\MPSConditionIsRoot.hpp" />
     <ClInclude Include="transforms\MPSTransform.hpp" />
     <ClInclude Include="transforms\MPSTransformInfo.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MemphisNow.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -15,7 +15,6 @@ struct MPSNotify
 };
 /*  End Utility Structures */
 
-/*  BEGIN MPSEngine */
 MPSEngine::MPSEngine()
     : m_master_token (0),
       m_rename_to (L""),
@@ -472,5 +471,3 @@ bool MPSEngine::is_token_current_root(const MPSToken* token) const
 
     return (token == m_master_token);
 }
-
-/*  END MPSEngine */
