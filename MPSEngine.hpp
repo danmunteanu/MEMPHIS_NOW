@@ -9,8 +9,6 @@
 #include <QVector>
 #include <QString>
 
-class MPSEngine;
-
 struct MPSFilesMapStruct {
     MPSToken*       root;
     std::wstring    rename_to;

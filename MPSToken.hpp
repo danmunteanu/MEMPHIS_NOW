@@ -19,15 +19,10 @@ enum EMPSDirection {
 class MPSToken {
 
 public:
-    MPSToken (	MPSToken* parent,
-                const std::wstring& text = L"",
-                const std::wstring& separators = L"",
-                bool discard = false ) :
-        m_parent (parent),
-        m_text (text),
-        m_separators (separators),
-        m_discard (discard)
-    {}
+    explicit MPSToken(MPSToken* parent = NULL,
+        const std::wstring& text = L"",
+        const std::wstring& separators = L"",
+        bool discard = false);
 
     ~MPSToken ();
 
@@ -46,12 +41,12 @@ public:
     bool is_discard () const { return m_discard; }
 
     //  access to subtokens
-    MPSTokensContainer::const_iterator sub_tokens_const_begin () const { return m_sub_tokens.begin(); }
-    MPSTokensContainer::const_iterator sub_tokens_const_end () const { return m_sub_tokens.end(); }
-    MPSTokensContainer::iterator sub_tokens_begin () { return m_sub_tokens.begin(); }
-    MPSTokensContainer::iterator sub_tokens_end () { return m_sub_tokens.end(); }
-    bool sub_tokens_empty () const { return m_sub_tokens.empty(); }
-    size_t count_subtokens () const { return m_sub_tokens.size(); }
+    MPSTokensContainer::const_iterator subtokens_const_begin () const { return m_subtokens.begin(); }
+    MPSTokensContainer::const_iterator subtokens_const_end () const { return m_subtokens.end(); }
+    MPSTokensContainer::iterator sub_tokens_begin () { return m_subtokens.begin(); }
+    MPSTokensContainer::iterator sub_tokens_end () { return m_subtokens.end(); }
+    bool sub_tokens_empty () const { return m_subtokens.empty(); }
+    size_t count_subtokens () const { return m_subtokens.size(); }
     void clear_subtokens ();
 
     /*  checks if token is in the list of subtokens */
@@ -76,10 +71,7 @@ public:
      */
     void shift_subtoken (MPSToken* sub_token, EMPSDirection direction);
 
-    //  counts the number of siblings left or right
-    int count_siblings (EMPSDirection direction) const;
-
-    //  splits the root token into subtokens based on the current separators
+    //  splits this token into subtokens based on current separators
     void split ();
 
 private:
@@ -95,7 +87,7 @@ private:
     std::wstring            m_text;             //	original text
     std::wstring            m_separators;       //	current separators
     bool                    m_discard;			//	flag to indicate if we're discarding this one or not
-    MPSTokensContainer      m_sub_tokens;		//	result after split into tokens using current separators
+    MPSTokensContainer      m_subtokens;		//	result after split into tokens using current separators
 };
 
 #endif // MPSHEADER_HPP

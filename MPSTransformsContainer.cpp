@@ -111,7 +111,7 @@ MPSTransformInfo MPSTransformsContainer::get_transform_information_at (int idx) 
 
     if (idx < 0 || idx >= static_cast<int> (m_transforms.size()))
     {
-        #pragma message (FixReminder "On invalid index, maybe should return some default dummy MPSTransformInfo")
+        //  return dummy info, check for action and condition index to be both -1 
         return info;
     }
 

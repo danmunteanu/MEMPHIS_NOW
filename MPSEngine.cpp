@@ -87,7 +87,7 @@ void MPSEngine::select_master_token (const std::wstring& file_name)
     } else {
 
         //  create new entry and add it into the internal map
-        m_master_token = new MPSToken (0, file_name, m_default_separators, false);
+        m_master_token = new MPSToken (NULL, file_name, m_default_separators, false);
 
         //  remove list of expressions
         std::wstring fn_clean = remove_strings_from_text(file_name);

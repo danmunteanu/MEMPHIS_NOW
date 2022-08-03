@@ -51,8 +51,6 @@ void MPSTokenWidget::paint(QPainter* painter,
     QFontMetrics fm = painter->fontMetrics();
     QString text = QString::fromStdWString(m_token->text());
 
-    //OLD: QPoint center = QPoint( ( rect().width() - fm.lineWidth(text)) / 2,
-                            //( rect().height() + fm.height()) / 2 - 5);
     QPoint center = QPoint((rect().width() - fm.horizontalAdvance(text)) / 2,
                             (rect().height() + fm.height()) / 2 - 5);
 

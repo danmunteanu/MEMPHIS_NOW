@@ -573,8 +573,7 @@ void MPSMainWindow::update_renames_list ()
     m_gui_obj.lstRenames->clear();
 
     QModelIndex modelIndex = m_files_model->index(m_files_model->rootPath());
-    for (int idx = 0; idx < m_files_model->rowCount(modelIndex); ++idx) {
-        //  OLD: QModelIndex child = modelIndex.child(idx, modelIndex.column());
+    for (int idx = 0; idx < m_files_model->rowCount(modelIndex); ++idx) {        
         QModelIndex child = m_files_model->index(idx, modelIndex.column(), modelIndex);
 
         //  get the file name
@@ -716,7 +715,7 @@ void MPSMainWindow::update_shift_buttons ()
         return;
 
     if (!token->parent()->sub_tokens_empty()) {
-        bool is_first_subtoken = (*token->parent()->sub_tokens_const_begin()) == token;
+        bool is_first_subtoken = (*token->parent()->subtokens_const_begin()) == token;
         m_gui_obj.btnShiftTokenLeft->setEnabled(!is_first_subtoken);
 
         bool is_last_subtoken = token == token->parent()->last_subtoken();
@@ -976,8 +975,8 @@ void MPSMainWindow::construct_scene (
         QPointF last_subtoken_pos;
 
         //  iterate subtokens
-        MPSTokensContainer::const_iterator iter = token->sub_tokens_const_begin();
-        for ( ; iter != token->sub_tokens_const_end(); ++iter) {
+        MPSTokensContainer::const_iterator iter = token->subtokens_const_begin();
+        for ( ; iter != token->subtokens_const_end(); ++iter) {
             construct_scene(
                 scene,
                 (*iter), //iter->second,
@@ -997,7 +996,7 @@ void MPSMainWindow::construct_scene (
             );
 
             //  store first subtoken's pos for connector line
-            if (iter == token->sub_tokens_const_begin()) {
+            if (iter == token->subtokens_const_begin()) {
                 first_subtoken_pos.setX(x_offset + subtoken_width / 2);
                 first_subtoken_pos.setY(y_offset - KInterTokenVerticalSpace / 2);
             }
@@ -1834,6 +1833,9 @@ void MPSMainWindow::on_btnListRenames_clicked()
     int rowCount = m_files_model->rowCount(modelIndex);
     QString fileName;   //  child fileName
 
+    QModelIndex jx = m_gui_obj.tvFolders->currentIndex();
+    QString rupa = m_folders_model->rootPath();
+    int a = 3;
     /*
     QVector<QString> vec;
     for (int row = 0; row < rowCount; ++row)
