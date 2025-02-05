@@ -10,7 +10,8 @@ struct MPSNotify
 {
     void operator () (MPSEngineObserver* obs)
     {
-        obs->notify();
+        if (obs)
+            obs->notify();
     }
 };
 /*  End Utility Structures */
