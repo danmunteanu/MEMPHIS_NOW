@@ -442,7 +442,7 @@ void MPSMainWindow::create_view_models ()
 
 QString MPSMainWindow::get_drive_label(const QString& drive)
 {
-    WCHAR szVolumeName[256] ;
+    /*WCHAR szVolumeName[256];
     WCHAR szFileSystemName[256];
     DWORD dwSerialNumber = 0;
     DWORD dwMaxFileNameLength=256;
@@ -458,9 +458,9 @@ QString MPSMainWindow::get_drive_label(const QString& drive)
         256);
     if (!ret) return QString("");
     QString name = QString::fromUtf16 ((const ushort*) szVolumeName);
-    (void) name.trimmed();
+    (void) name.trimmed();*/
 
-    return name;
+    return drive;
 }
 
 void MPSMainWindow::load_drives_list ()
@@ -906,22 +906,23 @@ void MPSMainWindow::reconstruct_scene ()
 {
     m_scene->clear();
 
-    //  add the "No file selected" text to the scene
-    QFont font;
-    font.setFamily ("Helvetica");
-    font.setPixelSize (24);
-    QString text = "[No File Selected]";
-    m_txt_no_sel = m_scene->addText (text, font);
-    m_txt_no_sel->setDefaultTextColor (Qt::white);
-    m_txt_no_sel->setPos (-100, -35);
-    m_txt_no_sel->setVisible (false);
-
     int x = 0;
     int y = 0;
     int w = 0;
     int h = 0;
     construct_scene (m_scene, m_core_engine.master_token(), x, y, w, h);
     m_scene->setSceneRect(0, -KInterTokenVerticalSpace, w, h + KInterTokenVerticalSpace);
+    if (m_scene->items().isEmpty()) {
+        //  no items in the scene, so show the "No file selected" text
+        QFont font;
+        font.setFamily("Helvetica");
+        font.setPixelSize(24);
+        QString text = "[No File Selected]";
+        m_txt_no_sel = m_scene->addText(text, font);
+        m_txt_no_sel->setDefaultTextColor(Qt::white);
+        m_txt_no_sel->setPos(-100, -35);
+        m_txt_no_sel->setVisible(true);
+    } 
 }
 
 void MPSMainWindow::construct_scene (
@@ -1092,9 +1093,10 @@ void MPSMainWindow::on_tvFolders_clicked(const QModelIndex &index)
     }
 
     // clear the scene & engine
-    m_scene->clear();
     m_core_engine.clear_files_map();
     m_core_engine.select_master_token(L"");    //  force resetting the root index
+
+	reconstruct_scene();
 
     //  update list buttons only after clearing engine state
     update_rename_and_discard_area();
