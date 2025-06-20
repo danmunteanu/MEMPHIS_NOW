@@ -15,5 +15,7 @@ I'm planning to use smart pointers in the near future.
 
 ### Build Instructions ###
 
-[Download Qt (for Windows)](https://www.qt.io/download-qt-installer-oss)
-[Install boost_1.88 on Windows (for msvc)](https://www.realityframeworks.com/install-boost-on-windows-for-msvc-gcc/)
+<ul>
+<li>[Download Qt (for Windows)](https://www.qt.io/download-qt-installer-oss)</li>
+<li>[Install boost_1.88 on Windows (for msvc)](https://www.realityframeworks.com/install-boost-on-windows-for-msvc-gcc/)</li>
+</ul>
