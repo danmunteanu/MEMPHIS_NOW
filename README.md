@@ -2,9 +2,11 @@
 
 Visually rename your mp3 files. 
 
-WARNING: *Use at your own risk*. I haven't taken the time to test all memory allocation issues, and there are some.
+**WARNING:** *Use at your own risk*. 
 
-I'm planning to use smart pointers in the near future.
+I haven't taken the time to test all memory allocation issues, and there are quite some. That's because I'm using raw pointers. There, I've said it. Yes, I know there are smart pointers and I am planning on refactoring the app and use them. 
+
+But until then, use at your own risk.
 
 <img src="assets/MemphisNow.png" alt="Memphis Now (C++)" style="max-width: 640px;">
 
@@ -15,7 +17,6 @@ I'm planning to use smart pointers in the near future.
 
 ### Build Instructions ###
 
-<ul>
-<li>[Download Qt (for Windows)](https://www.qt.io/download-qt-installer-oss)</li>
-<li>[Install boost_1.88 on Windows (for msvc)](https://www.realityframeworks.com/install-boost-on-windows-for-msvc-gcc/)</li>
-</ul>
+[Download Qt (for Windows)](https://www.qt.io/download-qt-installer-oss)
+[Install boost_1.88 on Windows (for msvc)](https://www.realityframeworks.com/install-boost-on-windows-for-msvc-gcc/)
+

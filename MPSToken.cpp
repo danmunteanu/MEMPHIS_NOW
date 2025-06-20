@@ -87,8 +87,15 @@ void MPSToken::split()
     int count = 0;
     for ( ; iter != tokenizer.end(); ++iter) {
         //	create sub-tokens
+
+        boost::shared_ptr<MPSToken> subToken (new MPSToken(this, *iter, L"", m_discard));
+		m_subtokens_shared.push_back(subToken);
+
         MPSToken* sub_token = new MPSToken (this, *iter, L"", m_discard);
         m_subtokens.push_back(sub_token);
+
+
+
         ++count;
     }
 }

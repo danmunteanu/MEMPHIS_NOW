@@ -2,6 +2,7 @@
 #define MPSHEADER_HPP
 
 #include <boost/tokenizer.hpp>
+#include <boost/shared_ptr.hpp>
 #include <string>
 #include <list>
 
@@ -10,6 +11,8 @@ typedef boost::tokenizer<BoostSeparator, std::wstring::const_iterator, std::wstr
 
 class MPSToken;
 typedef std::list<MPSToken*> MPSTokensContainer;
+
+typedef std::list<boost::shared_ptr<MPSToken> > MPSTokensSharedContainer;
 
 enum EMPSDirection {
     ELeft,
@@ -88,6 +91,7 @@ private:
     std::wstring            m_separators;       //	current separators
     bool                    m_discard;			//	flag to indicate if we're discarding this one or not
     MPSTokensContainer      m_subtokens;		//	result after split into tokens using current separators
+	MPSTokensSharedContainer m_subtokens_shared; //  shared pointers to subtokens, if needed
 };
 
 #endif // MPSHEADER_HPP
