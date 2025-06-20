@@ -6,8 +6,8 @@ Visually rename your mp3 files.
 
 ### Dependencies ###
 
-* Qt-6.3.1
-* boost_1_79_0
+* Qt-6.9.1
+* boost_1_88_0
 
 ### Build Instructions ###
 
