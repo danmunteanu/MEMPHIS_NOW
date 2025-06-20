@@ -11,4 +11,5 @@ Visually rename your mp3 files.
 
 ### Build Instructions ###
 
-*Coming soon...*
+[Download Qt (for Windows)](https://www.qt.io/download-qt-installer-oss)
+[Install boost_1.88 on Windows (for msvc)](https://www.realityframeworks.com/install-boost-on-windows-for-msvc-gcc/)
