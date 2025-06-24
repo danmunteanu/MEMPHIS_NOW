@@ -17,6 +17,8 @@ But until then, use at your own risk.
 
 ### Build Instructions ###
 
-[Download Qt (for Windows)](https://www.qt.io/download-qt-installer-oss)
-[Install boost_1.88 on Windows (for msvc)](https://www.realityframeworks.com/install-boost-on-windows-for-msvc-gcc/)
-
+<ul>
+<li>[Download Qt (for Windows)](https://www.qt.io/download-qt-installer-oss)</li>
+<li>[Download boost](https://www.boost.org/releases/latest/)</li>
+<li>[Configure boost_1.88 on Windows (for msvc)](https://www.realityframeworks.com/install-boost-on-windows-for-msvc-gcc/)</li>
+</ul>
