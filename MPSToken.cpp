@@ -142,8 +142,9 @@ void MPSToken::set_discard (bool discard)
 void MPSToken::cleanup_token (MPSToken& token)
 {
     if (!token.m_subtokens.empty()) {
+		MPSTokensContainer::iterator iter = token.m_subtokens.begin();
         //	we have some sub-tokens, need to delete them
-        for (MPSTokensContainer::iterator iter = token.m_subtokens.begin(); iter != token.m_subtokens.end(); ++iter) {
+        for ( ; iter != token.m_subtokens.end(); ++iter) {
             if (*iter != 0) {
                 cleanup_token (*(*iter));
                 delete (*iter);

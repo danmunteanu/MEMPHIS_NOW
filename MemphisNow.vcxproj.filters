@@ -97,6 +97,9 @@
     <ClCompile Include="transforms\MPSTransformInfo.cpp">
       <Filter>Source Files\transforms</Filter>
     </ClCompile>
+    <ClCompile Include="Token.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MPSCommon.hpp">
@@ -163,6 +166,9 @@
       <Filter>Header Files\transforms</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Token.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
