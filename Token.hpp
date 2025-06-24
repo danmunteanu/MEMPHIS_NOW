@@ -49,7 +49,7 @@ namespace Memphis
 		void ClearSubtokens() { mSubTokens.clear(); }
 
 		/*  checks if token is in the list of subtokens */
-		//bool is_subtoken(const MPSToken* token) const;
+		bool IsSubtoken(const Token* token) const;
 
 		/* finds last subtoken, regardless if it's disabled or not*/
 		//const MPSToken* last_subtoken() const;
