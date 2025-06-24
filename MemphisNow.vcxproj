@@ -108,6 +108,7 @@
     <ClCompile Include="MPSToken.cpp" />
     <ClCompile Include="MPSTokenWidget.cpp" />
     <ClCompile Include="MPSTransformsContainer.cpp" />
+    <ClCompile Include="Token.cpp" />
     <ClCompile Include="transforms\MPSActionBase.cpp" />
     <ClCompile Include="transforms\MPSActionChangeCase.cpp" />
     <ClCompile Include="transforms\MPSActionEnableDisable.cpp" />
@@ -135,6 +136,7 @@
     <ClInclude Include="MPSTokenWidget.hpp" />
     <ClInclude Include="MPSTransformsContainer.hpp" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Token.hpp" />
     <ClInclude Include="transforms\MPSActionBase.hpp" />
     <ClInclude Include="transforms\MPSActionChangeCase.hpp" />
     <ClInclude Include="transforms\MPSActionEnableDisable.hpp" />
