@@ -20,3 +20,7 @@ But until then, use at your own risk.
 [Download Qt (for Windows)](https://www.qt.io/download-qt-installer-oss)
 [Download boost](https://www.boost.org/releases/latest/)
 [Configure boost_1.88 on Windows (for msvc)](https://www.realityframeworks.com/install-boost-on-windows-for-msvc-gcc/)
+
+### License ###
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](./LICENSE.txt) file for details.
