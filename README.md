@@ -4,7 +4,7 @@ Visually rename your mp3 files.
 
 **WARNING:** *Use at your own risk*. 
 
-I haven't taken the time to test all memory allocation issues, and there are quite some. That's because I'm using raw pointers. There, I've said it. Yes, I know there are smart pointers and I am planning on refactoring the app and use them. 
+I haven't taken the time to test all memory allocation issues, and there are quite some. That's because I'm using raw pointers. There, I've said it. Yes, I know there are smart pointers and ~~I am planning on refactoring the app and use them~~. 
 
 But until then, use at your own risk.
 
