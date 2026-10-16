@@ -7,16 +7,13 @@ CONFIG += c++17
 SOURCES += \
     MemphisNowMain.cpp \
     MPSMainWindow.cpp \
-    MPSTokenWidget.cpp \
-    dialogmax.cpp
+    MPSTokenWidget.cpp
 
 HEADERS += \
     MPSMainWindow.hpp \
-    MPSTokenWidget.hpp \
-    dialogmax.h
+    MPSTokenWidget.hpp
 
-FORMS += MemphisNowWindow.ui \
-    dialogmax.ui
+FORMS += MemphisNowWindow.ui
 RESOURCES += MemphisNow.qrc
 
 win32: RC_FILE = MemphisNow.rc
